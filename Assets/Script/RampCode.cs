@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class RampCode : MonoBehaviour
 {
-    [SerializeField] private bool onRamp ;
-    [SerializeField] private float initPosy;
-    [SerializeField] private bool inAir ;
-    [SerializeField] private GameObject player; 
+    [SerializeField] private bool onRamp;
+    [SerializeField] private bool inAir;
+    [SerializeField] private GameObject player;
+    public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        initPosy = player.transform.position.y;
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -24,12 +20,13 @@ public class RampCode : MonoBehaviour
             if (!inAir)
             {
                 player.transform.Translate(Vector3.up * Time.deltaTime * 15f, Space.World);
+
             }
             else
             {
-                player.transform.Translate(- Vector3.up * Time.deltaTime * 15f, Space.World);
+                player.transform.Translate(-Vector3.up * Time.deltaTime * 15f, Space.World);
             }
-        }      
+        }
 
     }
 
@@ -37,9 +34,9 @@ public class RampCode : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetTrigger("Jump");
             inAir = false;
             onRamp = true;
-            initPosy = player.transform.position.y;
         }
     }
 
@@ -47,7 +44,7 @@ public class RampCode : MonoBehaviour
     private IEnumerator RampSequence()
     {
         yield return new WaitForSeconds(1f);
-        inAir =true;
+        inAir = true;
         yield return new WaitForSeconds(1f);
         onRamp = false;
         inAir = false;
@@ -55,4 +52,5 @@ public class RampCode : MonoBehaviour
 
 
 }
+
 

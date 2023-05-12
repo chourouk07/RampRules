@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private int coins = 0;
+    private Score score;
+    public AudioSource coinFX;
+
+    private void Start()
+    {
+        score = FindObjectOfType<Score>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            coins++;
+            coinFX.Play();
+            score.ScoreCal(1);
             Destroy(gameObject);
         }
     }

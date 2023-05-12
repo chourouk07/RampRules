@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Collision collision;
+    public GameObject endScreen;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (collision.isDead)
+        {
+            endScreen.SetActive(true);
+        }
     }
 }

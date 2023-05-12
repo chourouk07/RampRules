@@ -29,7 +29,7 @@ public class Rail : MonoBehaviour
             progress = Mathf.Clamp01(dot / (railLength * railLength));
 
             // Position the player on the rail
-            player.position = Vector3.Lerp(railStart.position, railEnd.position, progress) + (Vector3.up * 0.5f) + (Vector3.forward * 0.1f);
+            player.position = Vector3.Lerp(railStart.position, railEnd.position, progress) + (Vector3.up * 0.5f) + (Vector3.forward * 0.5f);
 
             // Check if the player has reached the end of the rail
             if (progress >= 1.0f)
@@ -52,7 +52,7 @@ public class Rail : MonoBehaviour
     }
     IEnumerator EnableMove()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         player.GetComponent<PlayerController>().enabled = true;
     }
 }
