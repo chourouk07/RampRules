@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rail : MonoBehaviour
 {
+    public AudioSource slideFX;
     public Transform railStart;
     public Transform railEnd;
     [SerializeField] private bool onRail = false;
@@ -46,6 +47,7 @@ public class Rail : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            slideFX.Play();
             onRail = true;
             player = other.transform;
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RampCode : MonoBehaviour
 {
+    public AudioSource jumpFX;
     [SerializeField] private bool onRamp;
     [SerializeField] private bool inAir;
     [SerializeField] private GameObject player;
@@ -19,12 +20,12 @@ public class RampCode : MonoBehaviour
             StartCoroutine(RampSequence());
             if (!inAir)
             {
-                player.transform.Translate(Vector3.up * Time.deltaTime * 15f, Space.World);
+                player.transform.Translate(Vector3.up * Time.deltaTime * 10f, Space.World);
 
             }
             else
             {
-                player.transform.Translate(-Vector3.up * Time.deltaTime * 15f, Space.World);
+                player.transform.Translate(-Vector3.up * Time.deltaTime * 10f, Space.World);
             }
         }
 
@@ -34,6 +35,7 @@ public class RampCode : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            jumpFX.Play();
             animator.SetTrigger("Jump");
             inAir = false;
             onRamp = true;

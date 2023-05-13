@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource jumpFX;
     public float moveSpeed = 20.0f;
     public float horizontalSpeed = 2.0f;
     public float jumpForce = 5.0f;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
                 // Perform jump
                 isJumping = true;
                 animator.SetTrigger("Jump");
+                jumpFX.Play();
                 StartCoroutine(JumpSequence());
             }
         }

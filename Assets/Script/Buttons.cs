@@ -10,7 +10,7 @@ public class Buttons : MonoBehaviour
     public GameObject MenuUI;
     public static void MoveToGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     public void PauseGame()
@@ -30,7 +30,7 @@ public class Buttons : MonoBehaviour
     public void ReturnToMain()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     public static void Quit()

@@ -21,7 +21,7 @@ public class GenerateLevel : MonoBehaviour
     {
         Instantiate(section, new Vector3(0,0,zPos),Quaternion.identity);
         zPos += 689f;
-        yield return new WaitForSeconds(40f);
+        yield return new WaitForSeconds(50f);
         isGenerating= false;
     }
 }
