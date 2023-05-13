@@ -43,6 +43,7 @@ public class Magnet : MonoBehaviour
         if (!isMagnetActive && magnetSound.isPlaying)
         {
             magnetSound.Stop();
+            Destroy(gameObject);
         }
     }
 
