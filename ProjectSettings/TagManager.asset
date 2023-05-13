@@ -9,6 +9,7 @@ TagManager:
   - Bar
   - Rail
   - Coin
+  - Magnet
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - PP
-  - 
+  - Coin
   - 
   - 
   - 
